@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<style>
+.flash {
+  background-color: #FBB0B0;
+  padding: 10px;
+  width: 400px;
+  border-color: #000;
+}
+</style>
+
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<div class="flash">{{ message }}</div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+
+
+{{ wtf.quick_form(form) }}
+
+{% endblock %}

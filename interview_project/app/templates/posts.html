@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+th, td { 
+	padding: 2px;
+}
+</style>
+
+
+{{ wtf.quick_form(form) }}
+<br />
+{% if comments %}
+<table style="width:50%">
+	<tr>
+		<th>Username</th>
+		<th>Post</th>
+
+	</tr>
+	<tr>
+	{% for comment in comments %}
+		<td>{{ comment[0] }}
+		<td>{{ comment[1] }}
+	{% endfor %}
+	</tr>
+</table>
+{% endif %}
+
+
+{% endblock %}

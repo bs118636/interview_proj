@@ -1,0 +1,26 @@
+{# index.html should have a post form asking for a name and text. #}
+
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+</div>
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<div class="flash">{{ message }}</div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+{{ wtf.quick_form(form) }}
+
+<a href="{{ url_for('main.register') }}">Register</a>
+
+{% endblock %}
